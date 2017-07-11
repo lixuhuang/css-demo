@@ -23,7 +23,11 @@ let fullMenuTree = [
     t: 'CSS代码示例',
     s: [
       {v: 'background', t: '背景与边框'},
-      {v: 'cicada', t: '蝉原则'}
+      {v: 'cicada', t: '蝉原则'},
+      {v: 'shape', t: '形状'},
+      {v: 'effects', t: '视觉效果'},
+      {v: 'ue', t: '用户体验'},
+      {v: 'layout', t: '结构与布局'},
     ]
   }
 ]

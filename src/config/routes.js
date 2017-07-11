@@ -10,10 +10,6 @@ export default [
     component: App,
     children: [
       {
-        path: '/empty-template',
-        component: resolve => require(['../pages/demo/empty-template'], resolve)
-      },
-      {
         path: '/background',
         component: resolve => require(['../pages/css/background'], resolve)
       },
@@ -22,8 +18,24 @@ export default [
         component: resolve => require(['../pages/css/cicada'], resolve)
       },
       {
+        path: '/shape',
+        component: resolve => require(['../pages/css/shape'], resolve)
+      },
+      {
+        path: '/effects',
+        component: resolve => require(['../pages/css/effects'], resolve)
+      },
+      {
+        path: '/ue',
+        component: resolve => require(['../pages/css/ue'], resolve)
+      },
+      {
+        path: '/layout',
+        component: resolve => require(['../pages/css/layout'], resolve)
+      },
+      {
         path: '*', //  其他页面，强制跳转到登录页面
-        redirect: '/empty-template'
+        redirect: '/background'
       }
     ]
   }

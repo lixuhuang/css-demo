@@ -3,7 +3,14 @@
   height: 150px;
   margin-bottom: 1em;
 }
-.hor-rect {
+
+.rect1 {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 1em;
+}
+
+.rect>div {
   float: left;
   margin-right: 1em;
 	width: 12em;

@@ -1,5 +1,3 @@
-import {check} from '../permission.js'
-
 export default {
   data () {
     return {
@@ -12,17 +10,6 @@ export default {
       tipsTrigger: false,
       paperDepth: 1,
       delayBackLock: false
-    }
-  },
-  computed: {
-    showAdd () {
-      return check('add')
-    },
-    showModify () {
-      return check('update')
-    },
-    showDelete () {
-      return check('delete')
     }
   },
   methods: {

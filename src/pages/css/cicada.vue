@@ -1,13 +1,13 @@
 <template>
   <div class="page">
-    <mu-paper class="index-paper" :zDepth="paperDepth"> 
+    <div class="index-paper" :zDepth="paperDepth"> 
       <div class="rect bg">
         <div class="loading">loading</div>         
       </div>
 
       <div class="rect stripes">
       </div>
-    </mu-paper>
+    </div>
   </div>
 </template>
 <script>

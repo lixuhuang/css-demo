@@ -1,10 +1,10 @@
 <template>
   <div class="page">
-    <mu-paper class="index-paper" :zDepth="paperDepth"> 
+    <div class="index-paper" :zDepth="paperDepth"> 
       <div class="rect">
-        <div class="hor-rect">multi border</div>         
+        <div>multi border</div>         
       </div>
-    </mu-paper>
+    </div>
   </div>
 </template>
 <script>

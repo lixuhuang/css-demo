@@ -1,39 +1,39 @@
 <template>
   <div class="page">
-    <mu-paper class="index-paper" :zDepth="paperDepth"> 
-      <div class="rect" style="background: url('http://csssecrets.io/images/stone-art.jpg')">
+    <div class="index-paper" :zDepth="paperDepth"> 
+      <div class="rect1" style="background: url('http://csssecrets.io/images/stone-art.jpg')">
         <div class="semi-transparent">semi-transparent border</div>
       </div> 
       <div class="rect">
         <div class="hor-rect multi-border">multi border</div>         
-        <div class="bg-pos hor-rect">bg position</div>
-        <div class="bg-origin hor-rect">bg origin</div>
-        <div class="bg-calc hor-rect">bg calc</div>
-        <div class="inner-round hor-rect">inner round</div>
+        <div class="bg-pos  ">bg position</div>
+        <div class="bg-origin  ">bg origin</div>
+        <div class="bg-calc  ">bg calc</div>
+        <div class="inner-round  ">inner round</div>
       </div>
 
       <div class="rect" >
-        <div class="horizontal-stripes hor-rect"></div>         
-        <div class="vertical-stripes hor-rect"></div>  
-        <div class="diagonal-stripes hor-rect"></div>         
-        <div class="diagonal-stripes-60deg hor-rect"></div>         
-        <div class="subtle-stripes hor-rect"></div>         
+        <div class="horizontal-stripes  "></div>         
+        <div class="vertical-stripes  "></div>  
+        <div class="diagonal-stripes  "></div>         
+        <div class="diagonal-stripes-60deg  "></div>         
+        <div class="subtle-stripes  "></div>         
       </div>
 
       <div class="rect">
-        <div class="blueprint hor-rect"></div>         
-        <div class="polka hor-rect"></div>         
-        <div class="checkerboard hor-rect"></div>         
-        <div class="checkerboard-svg hor-rect"></div>  
-        <div class="border-image hor-rect"></div>         
+        <div class="blueprint  "></div>         
+        <div class="polka  "></div>         
+        <div class="checkerboard  "></div>         
+        <div class="checkerboard-svg  "></div>  
+        <div class="border-image  "></div>         
       </div>
 
       <div class="rect">
-        <div class="border-image border-image2 hor-rect"></div>         
+        <div class="border-image border-image2  "></div>         
         <div class="hor-rect continuous-image-borders">border image border image border image </div>         
-        <div class="vintage-envelope hor-rect"> background clip </div>  
-        <div class="vintage-envelope-border-image hor-rect"> border image </div>  
-        <div class="marching-ants hor-rect"></div>  
+        <div class="vintage-envelope  "> background clip </div>  
+        <div class="vintage-envelope-border-image  "> border image </div>  
+        <div class="marching-ants  "></div>  
 
       </div>
 
@@ -46,7 +46,7 @@
 
       </div>
 
-    </mu-paper>
+    </div>
   </div>
 </template>
 <script>
@@ -59,9 +59,35 @@
       }
     },
     methods: {
+      onPopState (state) {
+        console.log(state)
+      }
     },
     created () {
       window.$app.$emit('setTitle', '背景')
+    },
+    beforeRouteLeave (to, from, next) {
+      // 导航离开该组件的对应路由时调用
+      // 可以访问组件实例 `this`
+      console.log(`from ${from.path}`)
+      console.log(`to ${to.path}`)
+      // if (to.path.indexOf('ci') !== -1) {
+      //   next('cicada')
+      // } else {
+      //   next('layout')
+      // }
+      // next('cicada')
+      // this.$router.push('cicada')
+      if (this.continue) {
+        next()
+      } else {
+        next(false)
+        setTimeout(() => { this.continue = true; next('cicada') }, 0)
+      }
+    },
+    mounted () {
+    },
+    destroyed () {
     }
   }
 </script>

@@ -2,7 +2,6 @@
   <div id="app" >
     <mu-appbar v-if="!isHomePage && !isLoginPage" :zDepth="0" :title="title" class="example-appbar" :class="{'nav-hide': !open}">
       <mu-icon-button @click="toggleNav" icon="menu" slot="left" />
-      <mu-flat-button @click="exit" icon="exit" label="退出" slot="right"/>
     </mu-appbar>
     <app-nav v-if="!isHomePage && !isLoginPage" @change="handleMenuChange" @close="toggleNav" :open="open" :docked="docked" />
     <div v-if="!isLoginPage" class="example-content" :class="{'nav-hide': !open, 'home-page': isHomePage}">
@@ -19,7 +18,6 @@
 
 <script>
   import AppNavDrawer from './components/app-nav'
-  import {getTitle} from './pagename.js'
 
   export default {
     data () {
@@ -48,10 +46,11 @@
         this.changeNav()
       }
       window.addEventListener('resize', this.handleResize)
-      // window.addEventListener('hashchange', () => {
-      //   this.setTitle()
-      //   this.allowed = true
-      // })
+      window.addEventListener('unload', (data) => {
+        console.log(data)
+        // this.setTitle()
+        // this.allowed = true
+      })
     },
     computed: {
       isHomePage () {
@@ -84,7 +83,7 @@
         if (!this.desktop) this.open = false
       },
       setTitle () {
-        this.title = getTitle()
+        // this.title = getTitle()
         // let path = window.location.hash
         // if (path && path.length > 1) path = path.substring(1)
         // for (let i = 0; i < this.routes.length; i++) {
